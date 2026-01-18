@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraz's Elite Auto Detailing - Premium Mobile Car Detailing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #f1f5f9;
+        }
+
+        /* Navigation */
+        nav {
+            background: #1e293b;
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-badge {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #60a5fa, #2563eb);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .logo-text h1 {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: #60a5fa;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #2563eb;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: #eff6ff;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #2563eb, #1e293b);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: #eff6ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 32px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        .feature-card p {
+            color: #64748b;
+        }
+
+        /* Service Cards */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .service-card.popular {
+            border: 2px solid #2563eb;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2563eb;
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #1e293b;
+        }
+
+        .service-card .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .service-card .time {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .service-card li:before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .service-card button {
+            width: 100%;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 250px;
+        }
+
+        .before, .after {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            position: relative;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .before {
+            background: #374151;
+        }
+
+        .after {
+            background: linear-gradient(135deg, #60a5fa, #2563eb);
+        }
+
+        .badge {
+            position: absolute;
+            top: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .before .badge {
+            left: 0.5rem;
+            background: #ef4444;
+        }
+
+        .after .badge {
+            right: 0.5rem;
+            background: #10b981;
+        }
+
+        .gallery-item p {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .stars {
+            color: #f59e0b;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card blockquote {
+            font-style: italic;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card .author {
+            font-weight: bold;
+            color: #1e293b;
+        }
+
+        .testimonial-card .vehicle {
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            color: #2563eb;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .contact-info h4 {
+            color: #1e293b;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-info p {
+            color: #64748b;
+        }
+
+        /* Forms */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: #1e293b;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #64748b;
+        }
+
+        /* Booking Form */
+        .booking-step {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            color: #1e293b;
+        }
+
+        .service-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-option {
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .service-option:hover {
+            border-color: #2563eb;
+            background: #eff6ff;
+        }
+
+        .service-option input[type="radio"] {
+            display: none;
+        }
+
+        .service-option input[type="radio"]:checked + .option-content {
+            border-color: #2563eb;
+        }
+
+        .option-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .option-name {
+            font-weight: bold;
+            color: #1e293b;
+        }
+
+        .option-price {
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .option-time {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .option-features {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .addon-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .addon-option input[type="checkbox"] {
+            width: auto;
+        }
+
+        .confirmation-box {
+            background: #eff6ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .confirmation-box h4 {
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .confirmation-box ul {
+            list-style: none;
+        }
+
+        .confirmation-box li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .confirmation-box li:before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #9ca3af;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .bg-white {
+            background: white;
+        }
+
+        .bg-gray {
+            background: #f1f5f9;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 1.125rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-section {
+            background: #2563eb;
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            .services-grid,
+            .features-grid,
+            .gallery-grid,
+            .testimonials-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-badge">F</div>
+                <div class="logo-text">
+                    <h1>Fraz's Elite Auto Detailing</h1>
+                    <p>Premium Mobile Service</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#book" class="btn-primary">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home / Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Your Car Deserves Elite Care</h1>
+            <p>Professional mobile detailing that comes to you. Premium results, guaranteed.</p>
+            <a href="#book" class="btn-secondary">Book Your Detail Now</a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="bg-white">
+        <div class="container text-center">
+            <h2>Why Choose Fraz's Elite Auto Detailing?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Mobile Service</h3>
+                    <p>We come to your home or office. No need to disrupt your day.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Premium Quality</h3>
+                    <p>Professional-grade products and meticulous attention to detail.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>100% Guaranteed</h3>
+                    <p>Not satisfied? We'll make it right or provide a full refund.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="bg-gray">
+        <div class="container text-center">
+            <h2>Our Services</h2>
+            <p class="subtitle">From quick refreshes to complete transformations, we offer professional detailing services tailored to your needs and budget.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div>
+                            <h3>Basic Refresh</h3>
+                            <div class="time">45 minutes</div>
+                        </div>
+                        <div class="price">$69</div>
+                    </div>
+                    <ul>
+                        <li>Exterior hand wash & dry</li>
+                        <li>Tire shine</li>
+                        <li>Windows cleaned inside & out</li>
+                        <li>Interior vacuum</li>
+                        <li>Air freshener</li>
+                    </ul>
+                    <a href="#book"><button class="btn-primary">Book This Service</button></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div>
+                            <h3>Interior Detail</h3>
+                            <div class="time">2 hours</div>
+                        </div>
+                        <div class="price">$129</div>
+                    </div>
+                    <ul>
+                        <li>Deep vacuum all surfaces</li>
+                        <li>Steam clean & condition seats</li>
+                        <li>Dashboard & console detail</li>
+                        <li>Door jambs cleaned</li>
+                        <li>Pet hair removal</li>
+                        <li>Odor elimination</li>
+                    </ul>
+                    <a href="#book"><button class="btn-primary">Book This Service</button></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-header">
+                        <div>
+                            <h3>Exterior Detail</h3>
+                            <div class="time">3 hours</div>
+                        </div>
+                        <div class="price">$149</div>
+                    </div>
+                    <ul>
+                        <li>Hand wash & clay bar treatment</li>
+                        <li>Machine polish</li>
+                        <li>Premium wax & seal</li>
+                        <li>Tire & wheel deep clean</li>
+                        <li>Trim restoration</li>
+                        <li>Glass treatment</li>
+                    </ul>
+                    <a href="#book"><button class="btn-primary">Book This Service</button></a>
+                </div>
+
+                <div class="service-card popular">
+                    <div class="popular-badge">⭐ MOST POPULAR</div>
+                    <div class="service-header">
+                        <div>
+                            <h3>Full Detail Package</h3>
+                            <div class="time">4-5 hours</div>
+                        </div>
+                        <div class="price">$249</div>
+                    </div>
+                    <ul>
+                        <li>Complete interior detail</li>
+                        <li>Complete exterior detail</li>
+                        <li>Engine bay cleaning</li>
+                        <li>Headlight restoration</li>
+                        <li>Scratch removal (minor)</li>
+                        <li>6-month protection</li>
+                    </ul>
+                    <a href="#book"><button class="btn-primary">Book This Service</button></a>
+                </div>
+            </div>
+
+            <!-- Add-ons -->
+            <div style="margin-top: 4rem; background: #eff6ff; padding: 2rem; border-radius: 12px;">
+                <h3>Available Add-Ons</h3>
+                <div class="stats-grid" style="margin-top: 2rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                        <h4>Engine Bay Cleaning</h4>
+                        <p style="color: #2563eb; font-weight: bold; font-size: 1.25rem;">+$40</p>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                        <h4>Headlight Restoration</h4>
+                        <p style="color: #2563eb; font-weight: bold; font-size: 1.25rem;">+$60</p>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                        <h4>Pet Hair Removal</h4>
+                        <p style="color: #2563eb; font-weight: bold; font-size: 1.25rem;">+$30</p>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                        <h4>Ceramic Coating</h4>
+                        <p style="color: #2563eb; font-weight: bold; font-size: 1.25rem;">+$350</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="bg-white">
+        <div class="container text-center">
+            <h2>Our Work</h2>
+            <p class="subtitle">See the dramatic transformations we deliver every day</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <div class="before">
+                            <span class="badge">BEFORE</span>
+                            Dirty exterior
+                        </div>
+                        <div class="after">
+                            <span class="badge">AFTER</span>
+                            Gleaming shine
+                        </div>
+                    </div>
+                    <p>Full exterior detail</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <div class="before">
+                            <span class="badge">BEFORE</span>
+                            Stained interior
+                        </div>
+                        <div class="after">
+                            <span class="badge">AFTER</span>
+                            Like-new seats
+                        </div>
+                    </div>
+                    <p>Deep interior cleaning</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <div class="before">
+                            <span class="badge">BEFORE</span>
+                            Foggy headlights
+                        </div>
+                        <div class="after">
+                            <span class="badge">AFTER</span>
+                            Crystal clear
+                        </div>
+                    </div>
+                    <p>Headlight restoration</p>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="before-after">
+                        <div class="before">
+                            <span class="badge">BEFORE</span>
+                            Dusty dashboard
+                        </div>
+                        <div class="after">
+                            <span class="badge">AFTER</span>
+                            Showroom finish
+                        </div>
+                    </div>
+                    <p>Interior detailing</p>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <h2 style="margin-top: 4rem;">What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"Fraz transformed my SUV! It looks better than the day I bought it. His attention to detail is incredible."</blockquote>
+                    <div class="author">Sarah Mitchell</div>
+                    <div class="vehicle">2019 Honda CR-V</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"Best mobile detailing service in the area. Professional, on-time, and the results speak for themselves."</blockquote>
+                    <div class="author">Michael Chen</div>
+                    <div class="vehicle">2021 BMW 3 Series</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"My car had years of stains and odors. Fraz made it look and smell brand new. Highly recommend!"</blockquote>
+                    <div class="author">Jennifer Davis</div>
+                    <div class="vehicle">2018 Toyota Camry</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <a href="#book"><button class="btn-primary" style="padding: 1rem 2.5rem; font-size: 1.125rem;">Get These Results for Your Car</button></a>
+            </div>
+        </div
